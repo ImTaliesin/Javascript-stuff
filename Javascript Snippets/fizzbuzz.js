@@ -15,3 +15,4 @@ while (count < 100) {
 }
 
 console.log(output);
+
