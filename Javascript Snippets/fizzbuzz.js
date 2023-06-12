@@ -1,7 +1,7 @@
 var output = [];
 var count = 1;
 
-while (count < 100) {
+while (count < 1337) {
   if (count % 3 === 0 && count % 5 === 0) {
     output.push("FizzBuzz");
   } else if (count % 3 === 0) {
