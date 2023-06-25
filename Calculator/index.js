@@ -47,7 +47,7 @@ for (var i = 0; i < operator.length; i++) {
       var newString = currentString.substring(0, currentString.length - 1) + e.target.innerHTML;
       input.innerHTML = newString;
     } else if (currentString.length == 0) {
-      // if first key pressed is an opearator, don't do anything
+      // if first key pressed is an operator, don't do anything
       console.log("enter a number first");
     } else {
       // else just add the operator pressed to the input
