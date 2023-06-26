@@ -19,3 +19,4 @@ function HouseKeeper (name yearsOfExperience, cleaningRepertoire) {
 }
 
 var HouseKeeper2 = new HouseKeeper("Jane", 7, ["kitchen", "lobby", "bedroom"]);
+
