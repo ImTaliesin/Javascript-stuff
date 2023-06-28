@@ -1,3 +1,14 @@
 body { 
     background-color: #283149;
 }
+
+.margin-50 {
+    margin-top: 50px;
+}
+
+.big-title {
+    font-size: 50px;
+    color: #FFF;
+    font-weight: bold;
+}
+
