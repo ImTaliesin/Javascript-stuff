@@ -2,6 +2,10 @@ let buttonColors = ["red", "blue", "green", "yellow"];
 let gamePattern = [];
 let userPattern = [];
 
+let gamePatternTest = ["red", "blue", "green", "yellow"];
+let userPatternTest = ["red", "blue", "green", "yellow"];
+
+
 
 function nextSequence() {
     var randomNumber = Math.floor(Math.random() * 4);
@@ -33,3 +37,4 @@ $(".btn").click(function() {
     animatePress(userChosenColor);
 }
 );
+
