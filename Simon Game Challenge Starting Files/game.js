@@ -1,10 +1,6 @@
 let buttonColors = ["red", "blue", "green", "yellow"];
 let gamePattern = [];
 let userPattern = [];
-let audio = new Audio("sounds/" + name + ".mp3");
-
-let gamePatternTest = ["red", "blue", "green", "yellow"];
-let userPatternTest = ["red", "blue", "green", "yellow"];
 
 
 gameStart();
@@ -54,15 +50,25 @@ $(".btn").click(function() {
     checkAnswer();
 });
 
+
 function checkAnswer() {
-    if (userPatternTest == gamePatternTest) {
+    if (JSON.stringify(userPattern) == JSON.stringify(gamePattern)) {
         console.log("success");
         nextSequence();
-
-    }
-    else {
+    } else {
         console.log("wrong");
-
-
+        $("h1").text("Game Over, Press Any Key to Restart");
+        $("body").addClass("game-over");
+        setTimeout(function() {
+            $("body").removeClass("game-over");
+        }
+        , 200);
+        startOver();
     }
+}
+
+function startOver() {
+    gamePattern = [];
+    userPattern = [];
+    gameStart();
 }
