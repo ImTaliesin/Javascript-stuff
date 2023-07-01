@@ -72,3 +72,4 @@ function startOver() {
     userPattern = [];
     gameStart();
 }
+
