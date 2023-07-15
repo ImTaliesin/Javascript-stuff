@@ -26,7 +26,6 @@ app.post('/', function(req, res) {
                     FNAME: firstName,
                     LNAME: lastName,
                     //PASSWORD: password
-    
                 }
             }
         ]
