@@ -2,6 +2,7 @@ let express = require('express');
 let app = express();
 let https = require('https');
 let bodyParser = require('body-parser');
+require('dotenv').config();
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -17,6 +18,7 @@ app.post('/', function(req, res) {
     let firstName = req.body.firstName;
     let lastName = req.body.lastName;
     let password = req.body.password;
+    
     let data = {
         members: [
             {
@@ -35,13 +37,21 @@ app.post('/', function(req, res) {
     let jsonData = JSON.stringify(data);
     let listId = 'e51249ff7f';
     let server = 'us21';
+    let apiKey = process.env.API_KEY;
     let options = {
         method: 'POST',
-        auth: "Taliesin:4cbcac88e307354f3cf812bcaeb95137-us21"
+        auth: apiKey,
     }
 
     let request = https.request('https://' + server + '.api.mailchimp.com/3.0/lists/' + listId, options, function(response) {
-        response.on('data', function(data) {
+        if (response.statusCode === 200) {
+            res.sendFile(__dirname + '/success.html');
+        }
+        else {
+            res.sendFile(__dirname + '/failure.html');
+        }
+
+    response.on('data', function(data) {
             console.log(JSON.parse(data));})});
 
     //Send data to Mailchimp
@@ -49,6 +59,11 @@ app.post('/', function(req, res) {
     request.end();
 
 });
+
+app.post('/failure', function(req, res) {
+    res.redirect('/');
+});
+
 
 
 //Turn server on
