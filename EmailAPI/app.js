@@ -67,7 +67,7 @@ app.post('/failure', function(req, res) {
 
 
 //Turn server on
-app.listen(6969, function() {
+app.listen(process.env.PORT || 6969, function() {
     console.log('Server is running on port 6969');});
 
 //mailchimp API key: 4cbcac88e307354f3cf812bcaeb95137-us21
